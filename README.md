@@ -15,7 +15,7 @@ Next-Gen Anime & Manga Dashboard powered by Node.js, Express, and SQLite.
 
 * **Backend:** Node.js, Express
 * **Database:** SQLite
-* **Frontend:** HTML, CSS, JavaScript *(update if using a framework like React)*
+* **Frontend:** HTML, CSS, JavaScript ,  React , Tailwind CSS 
 
 ---
 
