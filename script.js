@@ -805,16 +805,12 @@ function App() {
 
           {/* Header Right Actions */}
           <div className="flex items-center gap-2">
-            {/* Ask Otaku-Kun Bot Button with Shine Effect */}
             <button
               onClick={() => setIsChatOpen(true)}
-              className="otaku-shine-btn flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-brand-500/50 transition-all relative group"
-              title="Ask Otaku-Kun"
+              className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-brand-500/50 transition-all relative"
+              title="AI Assistant"
             >
-              <Icon name="bot" size={18} className="text-brand-400" />
-              <span className="text-xs font-bold hidden sm:inline bg-gradient-to-r from-brand-400 via-rose-400 to-amber-400 bg-clip-text text-transparent">
-                Ask Otaku-Kun
-              </span>
+              <Icon name="bot" size={20} />
               <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-brand-500 rounded-full animate-ping"></span>
               <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-brand-500 rounded-full"></span>
             </button>
@@ -1231,7 +1227,7 @@ function App() {
         </div>
       )}
 
-      {/* ASK OTAKU-KUN AI ASSISTANT CHATBOT DRAWER */}
+      {/* AI ASSISTANT CHATBOT DRAWER */}
       <AiChatbotDrawer isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
 
       {/* FOOTER */}
@@ -1606,17 +1602,14 @@ function ForumThreadView({ thread, onBack, onAddComment }) {
 }
 
 function AiChatbotDrawer({ isOpen, onClose }) {
-  const [messages, setMessages] = useState([{ role: 'model', text: "Konnichiwa! I am Ask Otaku-Kun. Ask me anything about anime!" }]);
+  const [messages, setMessages] = useState([{ role: 'model', text: "Konnichiwa! Ask me anything about anime." }]);
   const [inputMsg, setInputMsg] = useState('');
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-y-0 right-0 z-50 w-full sm:w-96 bg-slate-900 border-l border-slate-800 shadow-2xl flex flex-col">
       <div className="p-4 border-b border-slate-800 flex justify-between items-center bg-slate-950">
-        <div className="flex items-center gap-2">
-          <div className="w-2.5 h-2.5 rounded-full bg-brand-500 animate-pulse"></div>
-          <h3 className="font-bold text-sm text-white tracking-wide">Ask Otaku-Kun</h3>
-        </div>
+        <h3 className="font-bold text-sm text-white">AniBot AI Assistant</h3>
         <button onClick={onClose} className="p-1.5 text-slate-400 hover:text-white"><Icon name="x" size={18} /></button>
       </div>
       <div className="flex-1 p-4 overflow-y-auto space-y-3">
@@ -1627,10 +1620,10 @@ function AiChatbotDrawer({ isOpen, onClose }) {
       <form onSubmit={(e) => {
         e.preventDefault();
         if (!inputMsg.trim()) return;
-        setMessages(prev => [...prev, { role: 'user', text: inputMsg }, { role: 'model', text: "That sounds like an amazing title to check out on AniMichi!" }]);
+        setMessages(prev => [...prev, { role: 'user', text: inputMsg }, { role: 'model', text: "That sounds like a great title to check out on AniMichi!" }]);
         setInputMsg('');
       }} className="p-3 border-t border-slate-800 bg-slate-950 flex gap-2">
-        <input type="text" value={inputMsg} onChange={(e) => setInputMsg(e.target.value)} placeholder="Ask Otaku-Kun..." className="flex-1 bg-slate-900 text-xs text-white p-2.5 rounded-xl border border-slate-800" />
+        <input type="text" value={inputMsg} onChange={(e) => setInputMsg(e.target.value)} placeholder="Ask AniBot..." className="flex-1 bg-slate-900 text-xs text-white p-2.5 rounded-xl border border-slate-800" />
         <button type="submit" className="p-2.5 bg-brand-600 text-white rounded-xl"><Icon name="send" size={16} /></button>
       </form>
     </div>
